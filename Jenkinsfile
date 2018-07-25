@@ -11,12 +11,7 @@ pipeline {
         sh 'mvn compile'
       }
     }
-    stage('package') {
-      steps {
-        sh 'mvn package'
-      }
-    }
-    stage('Test') {
+        stage('Test') {
       parallel {
         stage('Test') {
           steps {
@@ -30,5 +25,11 @@ pipeline {
         }
       }
     }
+    stage('package') {
+      steps {
+        sh 'mvn package'
+      }
+    }
+
   }
 }
