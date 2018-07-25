@@ -11,7 +11,7 @@ pipeline {
         sh 'mvn compile'
       }
     }
-        stage('Test') {
+    stage('Test') {
       parallel {
         stage('Test') {
           steps {
@@ -20,7 +20,7 @@ pipeline {
         }
         stage('') {
           steps {
-            sh 'echo \'Functional Test\''
+            sh 'echo \'functional test\''
           }
         }
       }
@@ -30,6 +30,10 @@ pipeline {
         sh 'mvn package'
       }
     }
-
+    stage('Archive Artifacts') {
+      steps {
+        archiveArtifacts 'target/demowebapp.war'
+      }
+    }
   }
 }
