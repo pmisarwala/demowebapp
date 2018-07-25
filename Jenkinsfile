@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git(url: 'https://github.com/pmisarwala/demowebapp.git', branch: 'feature1')
+        git(url: 'https://github.com/pmisarwala/demowebapp.git', branch: 'master')
       }
     }
     stage('Compile') {
