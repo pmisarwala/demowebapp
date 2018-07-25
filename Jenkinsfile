@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git 'https://github.com/pmisarwala/demowebapp.git'
+        git(url: 'https://github.com/pmisarwala/demowebapp.git', branch: 'feature1')
       }
     }
     stage('Compile') {
@@ -18,7 +18,7 @@ pipeline {
             sh 'echo \'Run Unit Test\''
           }
         }
-        stage('') {
+        stage('error') {
           steps {
             sh 'echo \'functional test\''
           }
