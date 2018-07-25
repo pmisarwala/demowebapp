@@ -16,5 +16,19 @@ pipeline {
         sh 'mvn package'
       }
     }
+    stage('Test') {
+      parallel {
+        stage('Test') {
+          steps {
+            sh 'echo \'Run Unit Test\''
+          }
+        }
+        stage('') {
+          steps {
+            sh 'echo \'Functional Test\''
+          }
+        }
+      }
+    }
   }
 }
